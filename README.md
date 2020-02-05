@@ -9,7 +9,6 @@
 ## Usage:
 bash dns.sh domain
 
-e.g:
-bash dns.sh www.youku.com
+e.g. bash dns.sh www.youku.com
 
 会尝试不断优化脚本，仅供个人备份参考
