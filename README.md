@@ -6,4 +6,10 @@
 - 去重仅展示唯一的A记录值
 - 输出查询记录到/tmp目录并保存为域名名称
 
+## Usage:
+bash dns.sh domain
+
+e.g:
+bash dns.sh www.youku.com
+
 会尝试不断优化脚本，仅供个人备份参考
