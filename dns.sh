@@ -11,10 +11,13 @@ DNSARRAY=()
 for dns in ${array_dns[@]}
 	do
 	#dig @$dns $domain -t A | grep -v "^$" | grep -v "^;" | grep -v "CNAME" | awk '{print $5}' >> /tmp/$domain | cat /tmp/$domain | uniq | sort -n > /tmp/$domain
-	dig @$dns $1 -t A | grep -v "^$" | grep -v "^;" | grep -v "CNAME" | awk '{print $5}' >> /tmp/$1 | cat /tmp/$1 | uniq | sort -n > /tmp/$1
+	#dig @$dns $1 -t A | grep -v "^$" | grep -v "^;" | grep -v "CNAME" | awk '{print $5}' >> /tmp/$1 | cat /tmp/$1 | uniq | sort -n > /tmp/$1
+	dig @$dns $1 -t A +short | egrep '[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}' >> /tmp/$1 | sort -n /tmp/$1 | uniq > /tmp/$1 
 
 DNSARRAY+=("$!")
 
 done
 wait ${DNSARRAY[@]}
+
+cat /tmp/$1
 
