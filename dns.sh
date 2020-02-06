@@ -2,6 +2,12 @@
 PATH=/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
+if [ $# -ne 1 ]
+then
+	echo "Usage: $0 domain";
+	exit -1
+fi
+
 array_dns=(
 8.8.8.8 \
 8.8.4.4 \
